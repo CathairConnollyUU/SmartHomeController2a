@@ -22,12 +22,19 @@ namespace SmartHomeController
 
 
         // SmartSecurityCamera constructor
-        public SmartSecurityCamera(string cameraResolution)
+        public SmartSecurityCamera(int deviceID, string deviceName, string cameraResolution) : base(deviceID, deviceName)
         {
             this.Resolution = cameraResolution;
             recordingStatus = false; // Default recording status
 
         }
-     
+
+        public override void GetStatus()
+        {
+            base.GetStatus();
+            Console.WriteLine("This is a smart security camera");
+            Console.WriteLine($"Resolution: {Resolution}");
+        }
+
     }
 }
